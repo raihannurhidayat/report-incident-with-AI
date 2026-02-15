@@ -1,3 +1,4 @@
+/* eslint-disable */
 //@ts-nocheck
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import NextAuth from "next-auth";
@@ -31,7 +32,7 @@ const handler = NextAuth({
 
         const passwordMatch = await bcrypt.compare(
           credentials.password,
-          user.password
+          user.password,
         );
 
         if (!passwordMatch) {

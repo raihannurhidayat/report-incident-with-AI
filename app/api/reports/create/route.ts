@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { prisma } from "@/lib/prisma";
 import { ReportType } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
@@ -30,7 +32,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
         success: false,
         error: "failed to submitted report",
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

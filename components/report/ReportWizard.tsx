@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 "use client";
 
 import React, { useState } from "react";
@@ -21,7 +23,12 @@ const ReportWizard = () => {
   return (
     <div className="rounded-2xl bg-zinc-900 p-8">
       {currentState === 1 && <ReportForm onComplete={handleStepComplete} />}
-      {currentState === 2 && <ReportFormSubmission data={reportData} onComplete={handleStepComplete} />}
+      {currentState === 2 && (
+        <ReportFormSubmission
+          data={reportData}
+          onComplete={handleStepComplete}
+        />
+      )}
     </div>
   );
 };

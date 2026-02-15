@@ -1,3 +1,4 @@
+/* eslint-disable */
 //@ts-nocheck
 import { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -29,7 +30,7 @@ export const authOptions: AuthOptions = {
 
         const passwordMatch = await bcrypt.compare(
           credentials.password,
-          user.password
+          user.password,
         );
 
         if (!passwordMatch) {

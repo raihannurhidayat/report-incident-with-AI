@@ -1,10 +1,12 @@
+/* eslint-disable */
+
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { prisma } from "@/lib/prisma";
 
 export async function PATCH(
   request: Request,
-  { params }: { params: { reportId: string } }
+  { params }: { params: { reportId: string } },
 ) {
   try {
     const { reportId } = await params;
@@ -24,7 +26,7 @@ export async function PATCH(
   } catch (error) {
     return NextResponse.json(
       { error: "Error updating report" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

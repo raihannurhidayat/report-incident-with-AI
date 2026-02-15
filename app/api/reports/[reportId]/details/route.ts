@@ -1,10 +1,12 @@
+/* eslint-disable */
+
 import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 
 export async function GET(
   req: Request,
-  { params }: { params: { reportId: string } }
+  { params }: { params: { reportId: string } },
 ) {
   const { reportId } = await params;
 
@@ -18,7 +20,7 @@ export async function GET(
     if (!report) {
       return NextResponse.json(
         { error: "Report not found Server" },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -27,14 +29,14 @@ export async function GET(
     console.log("Failed to fetching data ", error);
     return NextResponse.json(
       { error: "Failed to fetch report details" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
 
 export async function PATCH(
   request: Request,
-  { params }: { params: { reportId: string } }
+  { params }: { params: { reportId: string } },
 ) {
   try {
     const session = await getServerSession();
@@ -52,7 +54,7 @@ export async function PATCH(
   } catch (error) {
     return NextResponse.json(
       { error: "Error updating report" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

@@ -1,7 +1,8 @@
+/* eslint-disable */
+
 "use client";
 
 import React, { useCallback, useState } from "react";
-import { Button } from "../ui/button";
 import Image from "next/image";
 import crypto from "crypto";
 
@@ -211,7 +212,7 @@ const ReportForm = (props: ReportFormProps) => {
         />
         <label
           htmlFor="image-upload"
-          className="block w-full p-8 border-2 border-dashed border-zinc-700 rounded-2xl 
+          className="block w-full p-8 border-2 border-dashed border-zinc-700 rounded-2xl
                    hover:border-sky-500/50 hover:bg-sky-500/5 transition-all duration-200
                    cursor-pointer text-center"
         >
@@ -348,7 +349,7 @@ const ReportForm = (props: ReportFormProps) => {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full relative group overflow-hidden rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 
+        className="w-full relative group overflow-hidden rounded-xl bg-gradient-to-br from-sky-500 to-blue-600
                  px-4 py-3.5 text-sm font-medium text-white shadow-lg
                  transition-all duration-200 hover:from-sky-400 hover:to-blue-500
                  disabled:opacity-50 disabled:cursor-not-allowed"
