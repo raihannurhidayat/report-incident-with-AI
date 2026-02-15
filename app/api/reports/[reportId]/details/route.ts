@@ -36,9 +36,11 @@ export async function GET(
 
 export async function PATCH(
   request: Request,
-  { params }: { params: { reportId: string } },
+  { params }: { params: Promise<{ reportId: string }> },
 ) {
   try {
+    const { reportId } = await params;
+
     const session = await getServerSession();
     if (!session) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -46,7 +48,7 @@ export async function PATCH(
 
     const { status } = await request.json();
     const report = await prisma.report.update({
-      where: { reportId: params.reportId },
+      where: { reportId },
       data: { status },
     });
 

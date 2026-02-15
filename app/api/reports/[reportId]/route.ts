@@ -6,7 +6,7 @@ import { prisma } from "@/lib/prisma";
 
 export async function PATCH(
   request: Request,
-  { params }: { params: { reportId: string } },
+  { params }: { params: Promise<{ reportId: string }> },
 ) {
   try {
     const { reportId } = await params;
