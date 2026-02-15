@@ -6,7 +6,7 @@ import { getServerSession } from "next-auth";
 
 export async function GET(
   req: Request,
-  { params }: { params: { reportId: string } },
+  { params }: { params: Promise<{ reportId: string }> },
 ) {
   const { reportId } = await params;
 
