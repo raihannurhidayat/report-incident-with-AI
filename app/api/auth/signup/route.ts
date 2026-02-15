@@ -9,7 +9,7 @@ export async function POST(req: Request) {
     if (!email || !password || !name) {
       return NextResponse.json(
         { error: "missing required fields" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -24,7 +24,7 @@ export async function POST(req: Request) {
         {
           error: "User already exitss",
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 

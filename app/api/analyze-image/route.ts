@@ -6,10 +6,10 @@ const genAI = new GoogleGenerativeAI(process.env.API_KEY_AI_GOOGLE! || "");
 export async function POST(req: Request) {
   try {
     const { image } = await req.json();
-    console.log("data image ", image);
+    // console.log("data image ", image);
     const base64Data = image.split(",")[1];
 
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
 
     const prompt = `Analyze this emergency situation image and respond in this exact format without any asterisks or    bullet points:
 TITLE: Write a clear, brief title
@@ -26,7 +26,6 @@ DESCRIPTION: Write a clear, concise description`;
       },
     ]);
 
-    
     const text = await result.response.text();
 
     // console.log({
@@ -48,7 +47,7 @@ DESCRIPTION: Write a clear, concise description`;
     console.error("Image analysis error:", error);
     return NextResponse.json(
       { error: "Failed to analyze image" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
