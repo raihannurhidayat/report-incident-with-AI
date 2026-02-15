@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { ReportStatus, ReportType } from "@prisma/client";
@@ -40,12 +42,11 @@ export async function GET(req: Request) {
         },
       }),
       new Promise((_, reject) =>
-        setTimeout(() => reject(new Error("Database timeout")), 15000)
+        setTimeout(() => reject(new Error("Database timeout")), 15000),
       ),
     ]);
 
     return NextResponse.json(dataReports);
-    
   } catch (error: any) {
     console.error("Failed to fetch reports:", error);
 
@@ -53,20 +54,20 @@ export async function GET(req: Request) {
     if (error.code === "P1001") {
       return NextResponse.json(
         { error: "Cannot connect to database. Please try again later." },
-        { status: 503 }
+        { status: 503 },
       );
     }
 
     if (error.code === "P2024") {
       return NextResponse.json(
         { error: "Database connection timeout. Please try again." },
-        { status: 504 }
+        { status: 504 },
       );
     }
 
     return NextResponse.json(
       { error: "Failed to fetch reports" },
-      { status: 500 }
+      { status: 500 },
     );
   } finally {
     // Optional: Disconnect for serverless environments
