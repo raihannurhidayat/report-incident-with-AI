@@ -8,7 +8,7 @@ const data = [
       "Your identity is protected with state-of-the-art encryption protocols",
     icon: (
       <svg
-        className="h-6 w-6 text-sky-400"
+        className="h-6 w-6 text-primary"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -27,7 +27,7 @@ const data = [
     description: "Instant verification and secure routing of all reports",
     icon: (
       <svg
-        className="h-6 w-6 text-sky-400"
+        className="h-6 w-6 text-primary"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -46,7 +46,7 @@ const data = [
     description: "Two-way anonymous channel with law enforcement",
     icon: (
       <svg
-        className="h-6 w-6 text-sky-400"
+        className="h-6 w-6 text-primary"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -74,7 +74,7 @@ export default function Home() {
       <div className="mx-auto max-w-5xl">
         {/* hero section */}
         <div className="flex flex-col items-center text-center">
-          <div className="inline-flex h-9 items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/10 px-4 text-sm text-sky-400">
+          <div className="inline-flex h-9 items-center gap-2 rounded-full border border-secondary bg-sky-500/10 px-4 text-sm text-primary">
             <svg
               className="h-4 w-4"
               fill="none"
@@ -92,12 +92,12 @@ export default function Home() {
           </div>
           <h1 className="mt-8 bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent text-6xl font-bold tracking-tight sm:text-7xl">
             Report Incident
-            <span className="block bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
               Protect Identity
             </span>
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
             Make your community safer without compromising your safety. Our
             advanced encryption ensures your identity remains completely
             enonymuous.
@@ -105,7 +105,7 @@ export default function Home() {
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <Link href={"/submit-report"}>
-              <button className="group relative flex h-12 items-center justify-center gap-2 rounded-xl bg-sky-500 px-8 text-sm font-medium text-white transition-all hover:bg-sky-400">
+              <Button className="group">
                 Make Anonymous Report
                 <svg
                   className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
@@ -120,10 +120,10 @@ export default function Home() {
                     d="M5 12h14M12 5l7 7-7 7"
                   />
                 </svg>
-              </button>
+              </Button>
             </Link>
             <Link href={"/how-it-works"}>
-              <Button className="h-12" variant={"default"}>
+              <Button  variant={"outline"}>
                 How it Works
               </Button>
             </Link>
@@ -137,10 +137,10 @@ export default function Home() {
               key={index}
               className="group relative overflow-hidden rounded-2xl bg-zinc-900 p-8 transition-all hover:bg-zinc-800/80"
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-sky-500/30 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-b from-primary/30 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
 
               <div className="relative">
-                <div className="mb-5 inline-flex rounded-xl bg-sky-500/10 p-3">
+                <div className="mb-5 inline-flex rounded-xl bg-primary/10 p-3">
                   {feature.icon}
                 </div>
                 <h3 className="mb-3 text-lg font-medium text-white">
@@ -171,7 +171,7 @@ export default function Home() {
         {/* Trust badge */}
         <div className="mt-40 pb-4 flex justify-center">
           <div className="inline-flex items-center gap-3 rounded-full bg-zinc-900 px-5 py-2 text-sm text-zinc-400">
-            <span className="size-1.5 rounded-full bg-emerald-500" />
+            <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
             Trusted by Law Enforcement Nationwed
           </div>
         </div>
