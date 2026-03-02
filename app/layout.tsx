@@ -25,17 +25,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${fontSans.variable} ${fontMono.variable} antialiased`}>
-        <div className="relative min-h-screen bg-black selection:bg-sky-500">
-          <div className="fixed inset-0 -z-10 min-h-screen">
-            <div className="absolute inset-0 h-full bg-[radial-gradient(circle_at_center, rgba(56,189,248,0.03), transparent_50%)]" />
-            <div className="absolute inset-0 h-full bg-[radial-gradient(circle_at_center, rgba(43,165,223,0.05), transparent_70%)]" />
-          </div>
+    <html lang="en" className="dark">
+      {" "}
+      {/* Tambahkan class dark jika perlu */}
+      <body
+        className={`${fontSans.variable} ${fontMono.variable} antialiased bg-black text-white`}
+      >
+        {/* BACKGROUND LAYER - Tetap di sini agar tidak hancur saat scroll */}
+        <div className="fixed inset-0 -z-10 min-h-screen overflow-hidden">
+          {/* Warna dasar gelap */}
+          <div className="absolute inset-0 bg-slate-950" />
 
-          {/* navbar */}
+          {/* Cahaya Biru Tengah (Layer 1) */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.15),transparent_10%)]" />
+
+          {/* Cahaya Biru Luar (Layer 2) */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(43,165,223,0.1),transparent_20%)]" />
+        </div>
+
+        {/* CONTENT LAYER */}
+        <div className="relative z-10 flex flex-col min-h-screen">
           <Navbar />
-          <main className="pt-16">
+          <main className="flex-grow pt-8">
             <Providers>{children}</Providers>
           </main>
         </div>
